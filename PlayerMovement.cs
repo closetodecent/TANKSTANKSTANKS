@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -31,6 +32,17 @@ public class PlayerMovement : MonoBehaviour
         rotation.z = angle;
         redtankbase.rotation = Quaternion.Euler(rotation);
 
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            } else
+            {
+                SceneManager.LoadScene(0);
+            }
+
+        }
     }
 
     void FixedUpdate()

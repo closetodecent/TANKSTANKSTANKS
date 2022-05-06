@@ -17,6 +17,11 @@ public class bullet : MonoBehaviour
         rb2d.velocity = rb2d.transform.up * speed;
     }
 
+    void Update()
+    {
+
+    }
+
    private void OnCollisionEnter2D (Collision2D hitInfo)
     {
          Debug.Log("bullet has collided");
@@ -24,6 +29,10 @@ public class bullet : MonoBehaviour
         {
             case "Enemy":
                 Debug.Log("hit enemy");
+                Destroy(gameObject);
+                break;
+            case "Player":
+                Debug.Log("hit player");
                 Destroy(gameObject);
                 break;
             case "Walls":
@@ -35,6 +44,10 @@ public class bullet : MonoBehaviour
                 {
                     Destroy(gameObject);
                 }
+                break;
+            case "Bullet":
+                Debug.Log("hit Other BillyBoi");
+                Destroy(gameObject);
                 break;
 
         }

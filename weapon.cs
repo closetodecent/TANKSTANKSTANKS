@@ -9,9 +9,9 @@ public class weapon : MonoBehaviour
 
    public GameObject bullet;
 
-   public float speed;
-float fireRate = 1f;
-float lastShot = 0f;
+   
+   public float fireRate;
+   float lastShot;
 
     // Update is called once per frame
     void Update()
@@ -23,11 +23,10 @@ float lastShot = 0f;
 
     void shoot ()
     {
-        if (Time.time > fireRate + lastShot) {
-
-        
-         Instantiate(bullet, firepoint.position, firepoint.rotation);
-        lastShot =Time.time;
+        Debug.Log(Time.time);
+       if (Time.time > fireRate + lastShot) {
+            Instantiate(bullet, firepoint.position, firepoint.rotation);
+            lastShot = Time.time;
         }
     }
 }

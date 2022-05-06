@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class hitDetection : MonoBehaviour
 {
@@ -18,6 +20,13 @@ public class hitDetection : MonoBehaviour
         {
             Debug.Log("oof");
             Destroy(gameObject);
+           if (gameObject.tag == "Player")
+            {
+                SceneManager.LoadScene(0);
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            }
         }
     }
+
+   
 }
